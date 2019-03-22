@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+        <style>
+            #div1, #div2 {
+                position: absolute;
+            }
+            div2 {
+                z-index: 10;
+            }
+
+            .open, .close {
+                position: absolute;
+            }
+
+            .hide {
+                display: none;
+            }
+            .slidecontainer {
+                display: grid;
+            }
+        </style>
+    </head>
+    <body>
+            <!-- <p>Demonstrate fadeTo() with different parameters.</p>
+
+            <button>Click to fade boxes</button><br><br> -->
+            
+            <!-- <div id="div1" style="width:80px;height:80px;background-color:red;"></div> -->
+            <!-- <div id="div2" style="width:80px;height:80px;background-color:green;"></div><br> -->
+            <!-- <div id="div3" style="width:80px;height:80px;background-color:blue;"></div> -->
+            <div class="slidecontainer">
+                    <input type="range" min="0" max="100" value="50" class="slider" id="myRange">
+            </div>
+            <div class="open">
+                <img class= "open-eyes" src="eyes_open.PNG">
+            </div>
+            <div class="close">
+                <img class= "close-eyes" src="eyes_close.PNG">
+            </div>
+           
+
+            
+    </body>
+    <script>
+        // console.log("hell");
+
+        // window.setInterval(function(){
+        //     const closeImg = document.querySelector('.close');  
+
+        // // $document.ready(function(){
+        //     closeImg.classList.toggle("hide")
+        // }, 10000);
+        // const closeImg;
+        const closeEye = document.querySelector('.close-eyes')
+        const slider = document.querySelector('.slider');
+        (function(){
+            console.log("immediate");
+            $(document).ready(function(){
+                // window.onload(function(){
+                //     const closeImg = document.querySelector('.close');
+                //     console.log(closeImg);
+                // })
+            
+            // console.log(slider.value);
+            slider.addEventListener("input", fade)
+               
+            }) ;
+            function fade() {
+                // console.log('Fading started');
+                $(closeEye).fadeTo( 'fast', (this.value)/100);
+                // console.log(this.value);
+
+                
+            }
+
+            // window.addEventListener("load", fade, false);
+        })();
+        
+        
+        // }, 2000);
+            
+            
+    </script>
+</html>
