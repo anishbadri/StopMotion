@@ -130,7 +130,6 @@
   // Set up our event listener to run the startup process
   // once loading is complete.
   window.addEventListener('load', startup, false);
-<<<<<<< HEAD
   window.addEventListener('load', makeGif, false);
 
   function makeGif() {
@@ -153,6 +152,4 @@
         document.body.appendChild(animatedImage);
     });
   }
-=======
->>>>>>> 9ae31f44a32ad02eb6f9be56e333efb7e5d1c8b2
 })();
