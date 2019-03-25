@@ -130,4 +130,26 @@
   // Set up our event listener to run the startup process
   // once loading is complete.
   window.addEventListener('load', startup, false);
+  window.addEventListener('load', makeGif, false);
+
+  function makeGif() {
+    var imgs = document.querySelectorAll('img');
+
+    var ag = new Animated_GIF(); 
+    ag.setSize(320, 240);
+
+    for(var i = 0; i < imgs.length; i++) {
+      if(i!=0) {
+        ag.addFrame(imgs[i]);
+      }
+    }
+
+    var animatedImage = document.createElement('img');
+
+    // This is asynchronous, rendered with WebWorkers
+    ag.getBase64GIF(function(image) {
+        animatedImage.src = image;
+        document.body.appendChild(animatedImage);
+    });
+  }
 })();
